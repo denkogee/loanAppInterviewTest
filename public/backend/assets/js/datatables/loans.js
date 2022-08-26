@@ -5,7 +5,7 @@
     processing: true,
     serverSide: true,
     ajax: {
-      url: _url + "/admin/loans/get_table_data",
+      url: "/admin/loans/get_table_data",
       method: "POST",
       data: function (d) {
         d._token = $('meta[name="csrf-token"]').attr("content");

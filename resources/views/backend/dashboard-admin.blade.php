@@ -38,7 +38,7 @@
 
 	<div class="card mb-4">
 		<div class="card-header">
-			{{ _lang('All Loans') }}
+			{{ _lang('All Loans ') }}
 		</div>
         <div class="card-body">
             <table id="loans_table" class="table table-bordered">
@@ -59,4 +59,9 @@
             </table>
         </div>
 	</div>
+@endsection
+
+
+@section('js-script')
+<script src="{{ asset('backend/assets/js/datatables/loans.js') }}"></script>
 @endsection

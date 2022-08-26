@@ -67,7 +67,7 @@ if (!function_exists('request_count')) {
 	function request_count($request, $html = false, $class = "sidebar-notification-count") {
 		if ($request == 'pending_loans') {
 			$notification_count = \App\Models\Loan::where('status', 0)->count();
-		} 
+		}
 
 		if ($html == false) {
 			return $notification_count;
@@ -77,5 +77,43 @@ if (!function_exists('request_count')) {
 			return '<span class="' . $class . '">' . $notification_count . '</span>';
 		}
 
+	}
+}
+
+if (!function_exists('create_option')) {
+	function create_option($table, $value, $display, $selected = '', $where = NULL) {
+		$options = '';
+		$condition = '';
+		if ($where != NULL) {
+			$condition .= "WHERE ";
+			foreach ($where as $key => $v) {
+				$condition .= $key . "'" . $v . "' ";
+			}
+		}
+
+		if (is_array($display)) {
+			$display_array = $display;
+			$display = $display_array[0];
+			$display1 = $display_array[1];
+		}
+
+		$query = DB::select("SELECT * FROM $table $condition");
+		foreach ($query as $d) {
+			if ($selected != '' && $selected == $d->$value) {
+				if (!isset($display_array)) {
+					$options .= "<option value='" . $d->$value . "' selected='true'>" . ucwords($d->$display) . "</option>";
+				} else {
+					$options .= "<option value='" . $d->$value . "' selected='true'>" . ucwords($d->$display . ' - ' . $d->$display1) . "</option>";
+				}
+			} else {
+				if (!isset($display_array)) {
+					$options .= "<option value='" . $d->$value . "'>" . ucwords($d->$display) . "</option>";
+				} else {
+					$options .= "<option value='" . $d->$value . "'>" . ucwords($d->$display . ' - ' . $d->$display1) . "</option>";
+				}
+			}
+		}
+
+		echo $options;
 	}
 }

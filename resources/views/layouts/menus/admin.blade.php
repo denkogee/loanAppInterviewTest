@@ -26,20 +26,6 @@
 <div class="collapse" id="loans" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 	<nav class="sb-sidenav-menu-nested nav">
 		<a class="nav-link" href="{{ route('admin.loans.index') }}">{{ _lang('All Loans') }}</a>
-		{{-- <a class="nav-link" href="{{ route('admin.loans.admin_calculator') }}">{{ _lang('Loan Calculator') }}</a>
-		<a class="nav-link" href="{{ route('admin.loans.create') }}">{{ _lang('Add New Loan') }}</a>
 		<a class="nav-link" href="{{ route('admin.loan_products.index') }}">{{ _lang('Loan Products') }}</a>
-		<a class="nav-link" href="{{ route('admin.loan_payments.index') }}">{{ _lang('Loan Repayments') }}</a> --}}
-	</nav>
-</div>
-
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reports" aria-expanded="false" aria-controls="collapseLayouts">
-	<div class="sb-nav-link-icon"><i class="icofont-chart-line-alt"></i></div>
-	{{ _lang('Report') }}
-	<div class="sb-sidenav-collapse-arrow"><i class="icofont-rounded-down"></i></div>
-</a>
-<div class="collapse" id="reports" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-	<nav class="sb-sidenav-menu-nested nav">
-		{{-- <a class="nav-link" href="{{ route('reports.loan_report') }}">{{ _lang('Loan Reports') }}</a> --}}
 	</nav>
 </div>

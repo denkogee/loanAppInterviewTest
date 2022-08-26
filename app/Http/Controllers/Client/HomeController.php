@@ -10,6 +10,6 @@ class HomeController extends Controller
     public function index()
     {
         // return view('client.index', ['loans' => auth()->user()->loans]);
-        return view('client.index');
+        return view("backend.admin.dashboard");
     }
 }
